@@ -39,15 +39,10 @@ function createServiceButton(base, service) {
     const button = document.createElement("button");
     button.textContent = service.name;    
     button.onclick = function() {
-      console.log("click on ", button.textContent)
-
-      if (button.textContent === "Calendar") {
-        createServiceButtonGoogle(base);
-      } 
-      else {
-        let url = base + "api/my/" + service.url
-        chat.postMessage({name: service.name, url: url})
-      }
+      
+      let url = base + "api/my/" + service.url
+      chat.postMessage({name: service.name, url: url})
+      
     };
     
   const span = document.createElement("span");
