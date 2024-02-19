@@ -6,8 +6,13 @@
 #--param MINIO_HOST $MINIO_HOST
 #--param MINIO_PORT $MINIO_PORT
 
+import json
 from minio import Minio
+from haystack.document_stores.in_memory import InMemoryDocumentStore
+#from haystack.document_stores import InMemoryDocumentStore
 import chevron
+
+
 
 def question(args):
     try:
@@ -29,13 +34,15 @@ def question(args):
         documents = []
 
         for obj in objects:
+            print("docuemento caricato")
             document = {
                 "text": minio_client.get_object(minio_data_bucket, obj.object_name).data.decode('utf-8'),
                 "meta": {"name": obj.object_name}
             }
+            print(json.dumps(document))
             documents.append(document)
 
-        print("numero documenti",documents.count)    
+        document_store = InMemoryDocumentStore(use_bm25=True)
 
         # document_store = MinioDocumentStore(
         #      minio_bucket=minio_data_bucket,
@@ -43,10 +50,12 @@ def question(args):
         #      base_url=f"http://{minio_host}:{minio_port}/{minio_data_bucket}",
         #      embedding_field=None
         #  )
-
+        print("document store try")
+        document_store = InMemoryDocumentStore()
+        print("-------")
         # document_store.write_documents(documents)
 
-        #query = args.get("input", "")
+        query = args.get("input", "describe documents")
 
         # result = document_store.query(query)
 
