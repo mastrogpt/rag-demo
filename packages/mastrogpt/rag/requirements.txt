@@ -1,2 +1,2 @@
-farm-haystack[colab,inference]
+farm-haystack
 chevron
