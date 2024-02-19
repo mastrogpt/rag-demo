@@ -23,6 +23,10 @@ def main(_):
             { 
                 "name": "Calendar", 
                 "url": "openai/chat",
+            },
+            { 
+                "name": "Rag", 
+                "url": "mastrogpt/rag",
             }  
         ]
     }

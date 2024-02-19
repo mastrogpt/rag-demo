@@ -40,6 +40,7 @@ def main(args):
         out = board(args)
 
     elif "upload" in args:
+        print("siamo in upload")
         if not "title" in args:
             args["title"] = "Upload"
         out = render("upload.html", args)
