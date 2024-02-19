@@ -1,4 +1,2 @@
+farm-haystack[colab,inference]
 chevron
-haystack-ai
-haystack
-farm-haystack[colab,ocr,preprocessing,file-conversion,pdf]

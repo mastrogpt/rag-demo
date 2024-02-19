@@ -20,12 +20,7 @@ RUN \
 ENV TZ=Europe/London \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
-    LC_ALL=en_US.UTF-8 \
-    TRANSFORMERS_CACHE="/home/nuvolaris/.cache/huggingface/hub"
-
-RUN \
-    mkdir -p "$TRANSFORMERS_CACHE" && \
-    chmod -R a+rw "$TRANSFORMERS_CACHE"
+    LC_ALL=en_US.UTF-8 
 
 RUN \
     VER=25.0.1 && \

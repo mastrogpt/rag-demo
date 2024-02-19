@@ -7,10 +7,9 @@
 #--param MINIO_PORT $MINIO_PORT
 
 import json
-from minio import Minio
-from haystack.document_stores.in_memory import InMemoryDocumentStore
-#from haystack.document_stores import InMemoryDocumentStore
 import chevron
+from minio import Minio
+#from haystack.document_stores import InMemoryDocumentStore
 
 
 
@@ -51,7 +50,7 @@ def question(args):
         #      embedding_field=None
         #  )
         print("document store try")
-        document_store = InMemoryDocumentStore()
+        #document_store = InMemoryDocumentStore()
         print("-------")
         # document_store.write_documents(documents)
 
